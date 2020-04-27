@@ -308,7 +308,8 @@ AudioSource:
   m_GameObject: {fileID: 290834571}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 5ecb35f2577d5f047ac726910590d0c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d16f9faf293b37843ba1544a516fb087, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -710,7 +711,8 @@ AudioSource:
   m_GameObject: {fileID: 437530528}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4362a3342df97c04283abee591c5cc49,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 82c7b8a0991227148b6ae467bcfaaafe, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1416,14 +1418,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 149393525}
-        m_MethodName: Quit
-        m_Mode: 1
+        m_MethodName: PerformMenuAction
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: quit
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1008736702
@@ -1650,7 +1652,8 @@ AudioSource:
   m_GameObject: {fileID: 1106259970}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4362a3342df97c04283abee591c5cc49,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 34c87f5fd71d8b54db409573585fd225, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2027,14 +2030,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 149393525}
-        m_MethodName: PlayGame
-        m_Mode: 1
+        m_MethodName: PerformMenuAction
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: play
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1294042912
@@ -3094,7 +3097,8 @@ AudioSource:
   m_GameObject: {fileID: 2103034938}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4362a3342df97c04283abee591c5cc49,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: bbc73a6d756a0bf4687ddfaa7ae7c525, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
