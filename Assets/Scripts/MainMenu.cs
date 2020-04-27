@@ -4,6 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public GameObject optionsMenu;
+    public float SoundTimeoutTime;
+
+    private void Start()
+    {
+        optionsMenu.SetActive(false);
+    }
+
     public void PerformMenuAction(string actionCalled)
     {
         switch (actionCalled)
@@ -20,6 +29,12 @@ public class MainMenu : MonoBehaviour
             case "closeOptions":
                 StartCoroutine(SoundTimeout(CallOption.CloseOptions));
                 break;
+            case "openScores":
+                StartCoroutine(SoundTimeout(CallOption.OpenScores));
+                break;
+            case "closeScores":
+                StartCoroutine(SoundTimeout(CallOption.CloseScores));
+                break;
         }
     }
 
@@ -35,7 +50,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator SoundTimeout(CallOption actionCalled)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(SoundTimeoutTime);
         
         switch (actionCalled)
         {
@@ -50,6 +65,9 @@ public class MainMenu : MonoBehaviour
                 break;
             case CallOption.CloseOptions:
                 CloseGameOptions();
+                break;
+            case CallOption.OpenScores:
+                OpenScores();
                 break;
         }
     }
@@ -67,10 +85,17 @@ public class MainMenu : MonoBehaviour
 
     void OpenGameOptions()
     {
-
+        optionsMenu.SetActive(true);
+        mainMenu.SetActive(false);
     }
 
     void CloseGameOptions()
+    {
+        optionsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    void OpenScores()
     {
 
     }
