@@ -7,7 +7,8 @@ using UnityEngine;
 public class ControlSpace : MonoBehaviour {
 
     public float faktor = 10;
-
+    public float maxPosX = 8.2f;
+    public float minPosX = -8.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +25,13 @@ public class ControlSpace : MonoBehaviour {
     {
         float xInput = Input.GetAxis("Horizontal");
         float newposition = transform.position.x + xInput * Time.deltaTime * faktor;
-        if (newposition > 8.5f)
+        if (newposition > maxPosX)
         {
-            newposition = 8.5f;
+            newposition = maxPosX;
         }
-        if (newposition < -8.5f)
+        if (newposition < minPosX)
         {
-            newposition = -8.5f;
+            newposition = minPosX;
         }
         transform.position = new Vector3(newposition, transform.position.y, 0);
     }
