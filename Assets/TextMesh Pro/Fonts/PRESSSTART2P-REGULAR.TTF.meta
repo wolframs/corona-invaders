@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c129e39d18c884a40b84924e2bc7dd8d
+guid: c8559048ca5e2bc46957f4f17026292b
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: VT323
+  fontName: Press Start 2P
   fontNames:
-  - VT323
+  - Press Start 2P
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 2

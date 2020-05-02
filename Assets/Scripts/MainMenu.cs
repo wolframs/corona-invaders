@@ -97,7 +97,7 @@ public class MainMenu : MonoBehaviour
 
     void OpenScores()
     {
-
+        SceneManager.LoadScene("Scores");
     }
 
 }
