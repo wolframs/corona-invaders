@@ -9,8 +9,7 @@ public class ControlSpace : MonoBehaviour {
     public float faktor = 10;
     public float maxPosX = 8.2f;
     public float minPosX = -8.2f;
-    public float cooldowntime = 1f;
-    float weaponcooldowntimestamp;
+    
     //AudioManager audioManager = new AudioManager();
 
 
@@ -40,22 +39,14 @@ public class ControlSpace : MonoBehaviour {
         }
         transform.position = new Vector3(newposition, transform.position.y, 0);
 
-        if (weaponcooldowntimestamp <= Time.time && Input.GetKeyDown("space"))
-        {
-            shoot();
-        }
+
     }
 
-    void shoot()
-    {
-        weaponcooldowntimestamp = Time.time + cooldowntime;
-        print("Schuss!!!");
-        //audioManager.Play("");
-    }
+
 
     void init()
     {
-        weaponcooldowntimestamp = Time.time;
+        
         float newposition = transform.position.y - 4;
         transform.position = new Vector3(0, newposition, 0);
     }
