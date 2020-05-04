@@ -11,6 +11,7 @@ public class ControlSpace : MonoBehaviour {
     public float minPosX = -8.2f;
     public float cooldowntime = 1f;
     float weaponcooldowntimestamp;
+    //AudioManager audioManager = new AudioManager();
 
 
     // Start is called before the first frame update
@@ -49,6 +50,7 @@ public class ControlSpace : MonoBehaviour {
     {
         weaponcooldowntimestamp = Time.time + cooldowntime;
         print("Schuss!!!");
+        //audioManager.Play("");
     }
 
     void init()
