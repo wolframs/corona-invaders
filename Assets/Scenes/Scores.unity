@@ -363,8 +363,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 624, y: -356}
-  m_SizeDelta: {x: 215.41602, y: 71.52771}
+  m_AnchoredPosition: {x: 5, y: -270}
+  m_SizeDelta: {x: 106.80257, y: 35.46321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427266115
 MonoBehaviour:
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5019608, g: 0.62352943, b: 0.5176471, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -995,7 +995,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916311144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.7, y: 77.1, z: 0}
+  m_LocalPosition: {x: -8.7, y: 78, z: 0}
   m_LocalScale: {x: 0.5869202, y: 0.5869202, z: 0.5869202}
   m_Children:
   - {fileID: 1109351515}
@@ -1072,7 +1072,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AAA
+  m_Text: Name
 --- !u!222 &1050545435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1323,7 +1323,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -359, y: 303.2}
-  m_SizeDelta: {x: 137.20251, y: 50.531677}
+  m_SizeDelta: {x: 148.58984, y: 50.531677}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109351516
 MonoBehaviour:
@@ -1356,7 +1356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pos
+  m_Text: Rank
 --- !u!222 &1109351517
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1479,7 +1479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.1, y: 309.3}
+  m_AnchoredPosition: {x: -15.1, y: 322}
   m_SizeDelta: {x: 358.3567, y: 55.65555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301534912
@@ -1609,8 +1609,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21, y: 94}
-  m_SizeDelta: {x: 539.20496, y: 526.0822}
+  m_AnchoredPosition: {x: -21, y: 126.1}
+  m_SizeDelta: {x: 539.20496, y: 546.363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1452421827
 MonoBehaviour:
@@ -1764,6 +1764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entryContainer: {fileID: 1787948637}
   entryTemplate: {fileID: 899644742}
+  scoreFile: {fileID: 4900000, guid: 1457e418725002f49a0278a306ff6f97, type: 3}
   templateHeight: 37
 --- !u!1 &1787948636
 GameObject:
