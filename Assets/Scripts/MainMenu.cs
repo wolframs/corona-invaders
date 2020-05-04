@@ -10,7 +10,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        optionsMenu.SetActive(false);
+        if(optionsMenu != null)
+            optionsMenu.SetActive(false);
     }
 
     public void PerformMenuAction(string actionCalled)
@@ -38,7 +39,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public enum CallOption
+    private enum CallOption
     {
         PlayGame,
         Quit,
@@ -69,6 +70,9 @@ public class MainMenu : MonoBehaviour
             case CallOption.OpenScores:
                 OpenScores();
                 break;
+            case CallOption.CloseScores:
+                CloseScores();
+                break;
         }
     }
 
@@ -97,7 +101,12 @@ public class MainMenu : MonoBehaviour
 
     void OpenScores()
     {
+        SceneManager.LoadScene("Scores");
+    }
 
+    void CloseScores()
+    {
+        SceneManager.LoadScene("Title");
     }
 
 }
