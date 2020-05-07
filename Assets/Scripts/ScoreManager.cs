@@ -50,15 +50,15 @@ public class ScoreManager : MonoBehaviour
         if (runDebugFunctions)
             WriteDemoFile();
 
-        // Ausführen, wenn das Script aus Score Scene eingebunden ist
         if (entryContainer != null)
+        // Ausführen, wenn das Script aus Score Scene eingebunden ist
         {
             PrintList(ReadScoreFile());
             return;
         }
 
-        // Ausführen, wenn das Script aus Game Over Scene eingebunden ist
         if (newHighScoreUI != null)
+        // Ausführen, wenn das Script aus Game Over Scene eingebunden ist
         {
             bool isNewHighScore = CheckNewScore(ReadScoreFile());
             if (isNewHighScore)
@@ -84,7 +84,7 @@ public class ScoreManager : MonoBehaviour
         // Template ausblenden
         entryTemplate.gameObject.SetActive(false);
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < scoreList.value.Count; i++)
         {
             // Aus Template neuen Eintrag erzeugen
             Transform entryTransform = Instantiate(entryTemplate, entryContainer);
@@ -111,7 +111,10 @@ public class ScoreManager : MonoBehaviour
     {
         int newScore = PlayerPrefs.GetInt("lastScore", 0);
 
-        for (int i = 0; i < 10; i++)
+        if (scoreList.value.Count < 10)
+            return true;
+
+        for (int i = 0; i < scoreList.value.Count; i++)
         {
             if (newScore > scoreList.value[i])
                 return true;
@@ -142,7 +145,10 @@ public class ScoreManager : MonoBehaviour
         int newScore = PlayerPrefs.GetInt("lastScore", 0);
 
         // Rank der neuen Score ermitteln:
-        for (int i = 0; i < 10; i++)
+        if (scoreList.value.Count < 10)
+            posOfNewScore = scoreList.value.Count;
+
+        for (int i = 0; i < scoreList.value.Count; i++)
         {
             if (newScore > scoreList.value[i])
             {
@@ -151,10 +157,13 @@ public class ScoreManager : MonoBehaviour
             }
         }
 
-        // Platz 10 löschen:
-        scoreList.entryNo.RemoveAt(9);
-        scoreList.value.RemoveAt(9);
-        scoreList.playerName.RemoveAt(9);
+        // Platz 10 löschen, falls nötig:
+        if(scoreList.entryNo.Count == 10)
+        {
+            scoreList.entryNo.RemoveAt(9);
+            scoreList.value.RemoveAt(9);
+            scoreList.playerName.RemoveAt(9);
+        }
 
         // Neuen Eintrag machen:
         scoreList.entryNo.Insert(posOfNewScore, posOfNewScore + 1);
@@ -162,7 +171,7 @@ public class ScoreManager : MonoBehaviour
         scoreList.playerName.Insert(posOfNewScore, playerNameText.text.ToUpper());
 
         // Nachfolgende Positionsnummern um 1 erhöhen:
-        for (int i = (posOfNewScore + 1); i < 10; i++)
+        for (int i = (posOfNewScore + 1); i < scoreList.value.Count; i++)
         {
             scoreList.entryNo[i] += 1;
         }
