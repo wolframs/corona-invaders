@@ -146,14 +146,18 @@ public class ScoreManager : MonoBehaviour
 
         // Rank der neuen Score ermitteln:
         if (scoreList.value.Count < 10)
-            posOfNewScore = scoreList.value.Count;
-
-        for (int i = 0; i < scoreList.value.Count; i++)
         {
-            if (newScore > scoreList.value[i])
+            posOfNewScore = scoreList.value.Count;
+        }
+        else
+        {
+            for (int i = 0; i < scoreList.value.Count; i++)
             {
-                posOfNewScore = i;
-                break;
+                if (newScore > scoreList.value[i])
+                {
+                    posOfNewScore = i;
+                    break;
+                }
             }
         }
 
