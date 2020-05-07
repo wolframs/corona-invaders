@@ -1764,8 +1764,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entryContainer: {fileID: 1787948637}
   entryTemplate: {fileID: 899644742}
-  scoreFile: {fileID: 4900000, guid: 1457e418725002f49a0278a306ff6f97, type: 3}
   templateHeight: 37
+  newHighScoreUI: {fileID: 0}
+  continueButton: {fileID: 0}
+  continueText: {fileID: 0}
+  playerNameText: {fileID: 0}
+  runDebugFunctions: 0
 --- !u!1 &1787948636
 GameObject:
   m_ObjectHideFlags: 0

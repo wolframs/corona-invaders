@@ -18,6 +18,15 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
+        EnemyScore();
         Destroy(gameObject);
+    }
+
+    // WSI 07.05.20:
+    private void EnemyScore()
+    {
+        GameObject scoreSystem = GameObject.Find("Score System");
+        if (scoreSystem != null)
+            scoreSystem.GetComponent<IngameScore>().ScoreEnemyDestroyed();
     }
 }

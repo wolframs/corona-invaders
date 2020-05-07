@@ -5,6 +5,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -15,14 +16,15 @@ public class ScoreManager : MonoBehaviour
     public Transform entryContainer;
     public Transform entryTemplate;
 
-    public TextAsset scoreFile;
-
     public float templateHeight = 60f;
 
     public GameObject newHighScoreUI;
     public Button continueButton;
     public TMP_Text continueText;
     public TMP_Text playerNameText;
+
+    public bool runDebugFunctions = false;
+    private string scoreFilePath = "";
 
     [HideInInspector]
     public class ScoreEntries
@@ -43,8 +45,10 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+        scoreFilePath = Application.persistentDataPath + "/scores.json";
         // Debug:
-        WriteDemoFile();
+        if (runDebugFunctions)
+            WriteDemoFile();
 
         // Ausführen, wenn das Script aus Score Scene eingebunden ist
         if (entryContainer != null)
@@ -72,7 +76,7 @@ public class ScoreManager : MonoBehaviour
 
     private ScoreEntries ReadScoreFile()
     {
-        return JsonUtility.FromJson<ScoreEntries>(scoreFile.text);
+        return JsonUtility.FromJson<ScoreEntries>(File.ReadAllText(scoreFilePath));
     }
 
     private void PrintList(ScoreEntries scoreList)
@@ -105,9 +109,7 @@ public class ScoreManager : MonoBehaviour
 
     public bool CheckNewScore(ScoreEntries scoreList)
     {
-        //int newScore = PlayerPrefs.GetInt("lastScore", 0);
-        // Debug:
-        int newScore = 900;
+        int newScore = PlayerPrefs.GetInt("lastScore", 0);
 
         for (int i = 0; i < 10; i++)
         {
@@ -117,17 +119,27 @@ public class ScoreManager : MonoBehaviour
         return false;
     }
 
-    public void PostNewScoreEntry()
+    public void ContinueButton_OnClick()
     {
         // Nicht ausführen, wenn keine Highscore erreicht wurde:
-        if (newHighScoreUI == null)
+        if (!newHighScoreUI.activeSelf)
+        {
+            PlayerPrefs.SetInt("lastScore", 0);
+            SceneManager.LoadScene("Title");
             return;
+        }
+        else
+        {
+            PostNewScore();
+        }
 
+    }
+
+    private void PostNewScore()
+    {
         ScoreEntries scoreList = ReadScoreFile();
         int posOfNewScore = 0;
-        //int newScore = PlayerPrefs.GetInt("lastScore", 0);
-        //Debug:
-        int newScore = 900;
+        int newScore = PlayerPrefs.GetInt("lastScore", 0);
 
         // Rank der neuen Score ermitteln:
         for (int i = 0; i < 10; i++)
@@ -156,7 +168,10 @@ public class ScoreManager : MonoBehaviour
         }
 
         // Datei überschreiben:
-        File.WriteAllText(AssetDatabase.GetAssetPath(scoreFile), scoreList.GetString());
+        File.WriteAllText(scoreFilePath, scoreList.GetString());
+
+        PlayerPrefs.SetInt("lastScore", 0);
+        SceneManager.LoadScene("Scores");
     }
 
     public void WriteDemoFile()
@@ -181,6 +196,7 @@ public class ScoreManager : MonoBehaviour
             demoEntries.playerName.Add(name);
         }
 
-        File.WriteAllText(AssetDatabase.GetAssetPath(scoreFile), demoEntries.GetString());
+        File.WriteAllText(scoreFilePath, demoEntries.GetString());
+        Debug.Log(scoreFilePath);
     }
 }

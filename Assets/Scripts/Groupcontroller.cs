@@ -82,7 +82,9 @@ public class Groupcontroller : MonoBehaviour
     {
         if (transform.position.y < gameoverYaxis)
         {
-            SceneManager.LoadScene("Title");
+            // WSI 07.05.20
+            //SceneManager.LoadScene("Title");
+            GameObject.Find("Game General Script").GetComponent<GameGeneral>().EndGame();
         }
     }
 }
