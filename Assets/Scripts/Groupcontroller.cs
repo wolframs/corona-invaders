@@ -33,6 +33,7 @@ public class Groupcontroller : MonoBehaviour
 
     void move()
     {
+        // Der Controller checkt in welche Richtung die Bewegung stattfinden muss, hier wird zur Bestimmung eine Kombination aus Zeit und Position verwendet
         if (moveleft && movedown && timestamp <= Time.time)
         {
             increaseRSpeed();
@@ -54,6 +55,7 @@ public class Groupcontroller : MonoBehaviour
 
     void increaseRSpeed()
     {
+        // Geschwindikeit nach Rechts überschreibt aktuelle Geschw.
         moveleft = false;
         movedown = false;
         print("rechts");
@@ -63,7 +65,7 @@ public class Groupcontroller : MonoBehaviour
     }
     void increaseLSpeed()
     {
-
+        // Geschwindikeit nach Links überschreibt aktuelle Geschw.
         moveright = false;
         movedown = false;
         print("links");
@@ -74,6 +76,7 @@ public class Groupcontroller : MonoBehaviour
 
     void increaseDSpeed()
     {
+        // Geschwindikeit nach Unten überschreibt aktuelle Geschw.
         print("runter");
         timestamp = Time.time + downwardTime;
         print(timestamp);
@@ -94,6 +97,7 @@ public class Groupcontroller : MonoBehaviour
 
     void checkIfAllChildrenAreGone()
     {
+        // Hier wird überprüft ob die Gruppe noch Gegner enthält. Wenn nicht wird die Gruppe gelöscht.
         print(transform.name + ":" + transform.childCount);
         if(transform.childCount == 0)
         {

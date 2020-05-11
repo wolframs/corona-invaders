@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
 
     void control()
     {
+        // Nur wenn der letzte Timestamp überschritten ist und der Space Button gedrückt ist wird geschossen
         if (weaponcooldowntimestamp <= Time.time && Input.GetKeyDown("space"))
         {
             shoot();
@@ -30,11 +31,13 @@ public class Weapon : MonoBehaviour
 
     void init()
     {
+        // Der Cooldowntimestamp wird initial bei Spielstart gesetzt
         weaponcooldowntimestamp = Time.time;
     }
 
     void shoot()
     {
+        // Eine Kugel wird erzeugt und der Timestamp erneuert (aktuelle Zeit + Cooldownzeit)
         weaponcooldowntimestamp = Time.time + cooldowntime;
         Instantiate(bulletpref, firepoint.position, firepoint.rotation);
         print("Schuss!!!");

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyWeapon : MonoBehaviour
 {
+
+    // Dieser Skript wird für jeden Gegner verwendet
+
     public float cooldowntime = 1f;
     public GameObject bulletpref;
     public Transform firepoint;
@@ -22,6 +25,8 @@ public class EnemyWeapon : MonoBehaviour
 
     void control()
     {
+        // Nur wenn der letzte Timestamp überschritten ist und die Zufallszahl 6 ist wird geschossen.
+        // Die Zufallszahl wird für jedes Frame und jeden Gegner ermittelt
         if (weaponcooldowntimestamp <= Time.time && Random.Range(1,3000) == 6)
         {
             shoot();
@@ -30,11 +35,13 @@ public class EnemyWeapon : MonoBehaviour
 
     void init()
     {
+        // Der Cooldowntimestamp wird initial bei Spielstart gesetzt
         weaponcooldowntimestamp = Time.time;
     }
 
     void shoot()
     {
+        // Eine Kugel wird erzeugt und der Timestamp erneuert (aktuelle Zeit + Cooldownzeit)
         weaponcooldowntimestamp = Time.time + cooldowntime;
         Instantiate(bulletpref, firepoint.position, firepoint.rotation);
         print("Schuss!!!");

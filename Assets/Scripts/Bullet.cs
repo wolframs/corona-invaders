@@ -10,12 +10,13 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Initial wird der Kugel eine Geschwindigkeit zugewiesen
         bulletbody.velocity = transform.up * velocity;
-        print(transform.up * velocity);
     }
 
     void OnTriggerEnter2D()
     {
+        // Bei Kollision wird das getroffene Objekt zerstört
         Destroy(gameObject);
     }
 }

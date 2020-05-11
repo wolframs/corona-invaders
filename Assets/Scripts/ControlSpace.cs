@@ -27,6 +27,7 @@ public class ControlSpace : MonoBehaviour {
 
     void control()
     {
+        // Hier wird bei jedem Frame entsprechend dem Keyboardinput die neue Position berechnet
         float xInput = Input.GetAxis("Horizontal");
         float newposition = transform.position.x + xInput * Time.deltaTime * faktor;
         if (newposition > maxPosX)
@@ -38,15 +39,13 @@ public class ControlSpace : MonoBehaviour {
             newposition = minPosX;
         }
         transform.position = new Vector3(newposition, transform.position.y, 0);
-
-
     }
 
 
 
     void init()
     {
-        
+        // Hier wird initial die Position des Spielers gesetzt
         float newposition = transform.position.y - 4;
         transform.position = new Vector3(0, newposition, 0);
     }
