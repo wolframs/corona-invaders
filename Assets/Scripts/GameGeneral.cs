@@ -17,6 +17,11 @@ public class GameGeneral : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
+    public void EndGameFromSuccess()
+    {
+        SceneManager.LoadScene("Scores");
+    }
+
     public void CheckSelfDestroy()
     {
         // Zum Debuggen ayayayaya

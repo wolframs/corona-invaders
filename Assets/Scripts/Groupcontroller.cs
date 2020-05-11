@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class Groupcontroller : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Transform transform;
     public float speed = 2f;
     public float downwardTime = 1f;
     public float gameoverYaxis = -3.5f;
+    public float rightBorder = 5;
+    public float leftBorder = -5;
     private float timestamp;
     private bool moveright = false;
     private bool moveleft = false;
@@ -25,6 +28,7 @@ public class Groupcontroller : MonoBehaviour
     {
         move();
         checkPos();
+        checkIfAllChildrenAreGone();
     }
 
     void move()
@@ -39,9 +43,9 @@ public class Groupcontroller : MonoBehaviour
             increaseLSpeed();
         }
 
-        if (moveleft && transform.position.x < -5 || moveright && transform.position.x > 5)
+        if (moveleft && transform.position.x < leftBorder || moveright && transform.position.x > rightBorder)
         {
-            if ((transform.position.x > 5 || transform.position.x < -5) && !movedown)
+            if ((transform.position.x > rightBorder || transform.position.x < leftBorder) && !movedown)
             {
                 increaseDSpeed();
             }
@@ -85,6 +89,17 @@ public class Groupcontroller : MonoBehaviour
             // WSI 07.05.20
             //SceneManager.LoadScene("Title");
             GameObject.Find("Game General Script").GetComponent<GameGeneral>().EndGame();
+        }
+    }
+
+    void checkIfAllChildrenAreGone()
+    {
+        print(transform.name + ":" + transform.childCount);
+        if(transform.childCount == 0)
+        {
+            GameObject gameObject = transform.gameObject;
+            Destroy(gameObject);
+            print("gameObject wurde zerstört");
         }
     }
 }
