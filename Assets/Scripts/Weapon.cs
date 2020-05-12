@@ -8,10 +8,15 @@ public class Weapon : MonoBehaviour
     public GameObject bulletpref;
     public Transform firepoint;
     float weaponcooldowntimestamp;
+    // WSI 12.05.20:
+    private AudioManager AudioMan;
+
     // Start is called before the first frame update
     void Start()
     {
-        init();   
+        init();
+        // WSI 12.05.20:
+        AudioMan = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -41,7 +46,8 @@ public class Weapon : MonoBehaviour
         weaponcooldowntimestamp = Time.time + cooldowntime;
         Instantiate(bulletpref, firepoint.position, firepoint.rotation);
         print("Schuss!!!");
-        //audioManager.Play("");
+        // WSI 12.05.20:
+        AudioMan.Play("PlayerPew");
     }
 
 }

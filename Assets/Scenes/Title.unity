@@ -698,6 +698,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicMixer: {fileID: 24100000, guid: 5ecb35f2577d5f047ac726910590d0c2, type: 2}
   SFXMixer: {fileID: 24100000, guid: 4362a3342df97c04283abee591c5cc49, type: 2}
+  MusicSlider: {fileID: 379333489}
+  SFXSlider: {fileID: 1070282195}
 --- !u!1 &437530528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,6 +1189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 802770112}
+  - component: {fileID: 802770113}
   m_Layer: 0
   m_Name: Audio Objects
   m_TagString: Untagged
@@ -1212,6 +1215,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &802770113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802770111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6cd07fcdf165244b00aa5aa13d5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: 5ecb35f2577d5f047ac726910590d0c2, type: 2}
+  SFXMixer: {fileID: 24100000, guid: 4362a3342df97c04283abee591c5cc49, type: 2}
 --- !u!1 &814313955
 GameObject:
   m_ObjectHideFlags: 0

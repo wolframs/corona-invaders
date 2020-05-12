@@ -9,9 +9,6 @@ public class ControlSpace : MonoBehaviour {
     public float faktor = 10;
     public float maxPosX = 8.2f;
     public float minPosX = -8.2f;
-    
-    //AudioManager audioManager = new AudioManager();
-
 
     // Start is called before the first frame update
     void Start()

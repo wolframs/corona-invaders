@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D()
     {
         EnemyScore();
+        EnemyDeathSound();
         Destroy(gameObject);
     }
 
@@ -28,5 +29,11 @@ public class Enemy : MonoBehaviour
         GameObject scoreSystem = GameObject.Find("Score System");
         if (scoreSystem != null)
             scoreSystem.GetComponent<IngameScore>().ScoreEnemyDestroyed();
+    }
+
+    // WSI 12.05.20:
+    private void EnemyDeathSound()
+    {
+        FindObjectOfType<AudioManager>().Play("EnemyDeath");
     }
 }

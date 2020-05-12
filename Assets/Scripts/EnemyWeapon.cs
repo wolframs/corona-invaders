@@ -11,10 +11,17 @@ public class EnemyWeapon : MonoBehaviour
     public GameObject bulletpref;
     public Transform firepoint;
     float weaponcooldowntimestamp;
+    // WSI 12.05.20:
+    private AudioManager AudioMan;
+    private GameObject scoreSystem;
+
     // Start is called before the first frame update
     void Start()
     {
         init();
+        // WSI 12.05.20:
+        scoreSystem = GameObject.Find("Score System");
+        AudioMan = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -45,6 +52,12 @@ public class EnemyWeapon : MonoBehaviour
         weaponcooldowntimestamp = Time.time + cooldowntime;
         Instantiate(bulletpref, firepoint.position, firepoint.rotation);
         print("Schuss!!!");
-        //audioManager.Play("");
+
+        // WSI 12.05.20:
+        // Score ++ für jeden "überlebten" Schuss
+        if (scoreSystem != null)
+            scoreSystem.GetComponent<IngameScore>().ScoreEnemyShot();
+        // Sound:
+        AudioMan.Play("EnemyPew");
     }
 }

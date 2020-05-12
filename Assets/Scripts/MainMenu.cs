@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        // Optionen Menü ausblenden, nur für den Fall
         if(optionsMenu != null)
             optionsMenu.SetActive(false);
     }

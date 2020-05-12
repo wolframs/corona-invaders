@@ -330,6 +330,74 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.35}
   m_EdgeRadius: 0
+--- !u!1 &853884638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 853884640}
+  - component: {fileID: 853884639}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &853884639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853884638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5bc75165399af4a93db31a2e39e765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerPew
+    clip: {fileID: 8300000, guid: 05c31b560b6b56844b6078369b53980d, type: 3}
+    volume: 1
+    pitch: 1
+    mixer: {fileID: 24300002, guid: 4362a3342df97c04283abee591c5cc49, type: 2}
+    source: {fileID: 0}
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: ca00cc1e2cbf75640a23d83e34bb09ba, type: 3}
+    volume: 1
+    pitch: 1
+    mixer: {fileID: 24300002, guid: 4362a3342df97c04283abee591c5cc49, type: 2}
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: cc8391d90774a44488fc53d5039947e0, type: 3}
+    volume: 1
+    pitch: 1
+    mixer: {fileID: 24300002, guid: 4362a3342df97c04283abee591c5cc49, type: 2}
+    source: {fileID: 0}
+  - name: EnemyPew
+    clip: {fileID: 8300000, guid: a4a82dff2956cbe4cbe0ea8ef07d3660, type: 3}
+    volume: 1
+    pitch: 1
+    mixer: {fileID: 24300002, guid: 4362a3342df97c04283abee591c5cc49, type: 2}
+    source: {fileID: 0}
+--- !u!4 &853884640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853884638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.034077, y: 0.5023739, z: -273.4303}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891213580
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -571.4, y: 333.4}
+  m_AnchoredPosition: {x: -378, y: 333.4}
   m_SizeDelta: {x: 121.334, y: 31.247208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140885259
@@ -987,7 +1055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -455.1, y: 333.4}
+  m_AnchoredPosition: {x: -261.69995, y: 333.4}
   m_SizeDelta: {x: 111.35565, y: 31.247208}
   m_Pivot: {x: 0.50000024, y: 0.49999997}
 --- !u!114 &1973473689
@@ -1041,7 +1109,7 @@ GameObject:
   - component: {fileID: 2040977108}
   - component: {fileID: 2040977109}
   m_Layer: 0
-  m_Name: Enemys
+  m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
