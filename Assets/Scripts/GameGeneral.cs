@@ -19,7 +19,7 @@ public class GameGeneral : MonoBehaviour
 
     public void EndGameFromSuccess()
     {
-        SceneManager.LoadScene("Scores");
+        SceneManager.LoadScene("GameOver");
     }
 
     public void CheckSelfDestroy()
@@ -27,7 +27,6 @@ public class GameGeneral : MonoBehaviour
         // Zum Debuggen ayayayaya
         if (Input.GetKeyDown(KeyCode.F10))
         {
-            PlayerPrefs.SetInt("lastScore", 0);
             SceneManager.LoadScene("GameOver");
         }
     }

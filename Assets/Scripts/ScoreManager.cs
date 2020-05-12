@@ -24,6 +24,7 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text playerNameText;
 
     public bool runDebugFunctions = false;
+
     private string scoreFilePath = "";
 
     [HideInInspector]
@@ -45,7 +46,11 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+        //get_persistentDataPath kann nicht bei der Klassen-Initialisierung ausgeführt werden, deshalb in Start() oder Awake()
         scoreFilePath = Application.persistentDataPath + "/scores.json";
+
+        VerifyScoreFileExists();
+
         // Debug:
         if (runDebugFunctions)
             WriteDemoFile();
@@ -205,11 +210,19 @@ public class ScoreManager : MonoBehaviour
             string name = new string(nameChars);
 
             demoEntries.entryNo.Add(i + 1);
-            demoEntries.value.Add(1150 - i * 85);
+            demoEntries.value.Add(855 - i * 75);
             demoEntries.playerName.Add(name);
         }
 
         File.WriteAllText(scoreFilePath, demoEntries.GetString());
         Debug.Log(scoreFilePath);
+    }
+
+    public void VerifyScoreFileExists()
+    {
+        if (!File.Exists(scoreFilePath))
+        {
+            WriteDemoFile();
+        }
     }
 }
